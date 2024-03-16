@@ -37,5 +37,17 @@ class UsersTableViewController : UITableViewController {
         return cell
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+        let indexPath = (self.tableView.indexPathForSelectedRow)!
+        
+        let registrationTVC = segue.destination as! RegistrationTableViewController
+        
+        let userViewModel = self.usersListViewModel.userViewModels[indexPath.row]
+        
+        registrationTVC.selectedUserViewModel = userViewModel
+        
+    }
+    
     
 }

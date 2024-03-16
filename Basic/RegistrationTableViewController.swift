@@ -15,21 +15,20 @@ class RegistrationTableViewController : UITableViewController {
     @IBOutlet weak var passwordTextField :UITextField!
     
     private var registrationViewModel :RegistrationViewModel!
+    var selectedUserViewModel :UserViewModel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.firstNameTextField.text = self.selectedUserViewModel.firstName
+        self.lastnameTextField.text = self.selectedUserViewModel.lastName
     }
     
+    @IBAction func save() {
     
-    @IBAction func save(_ sender: UIBarButtonItem) {
         self.registrationViewModel = RegistrationViewModel(firstName: self.firstNameTextField.text!, lastName: self.lastnameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!)
         
         self.registrationViewModel.save()
-    
     }
     
-
-    }
-    
-
+}
