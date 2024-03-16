@@ -14,10 +14,22 @@ class RegistrationTableViewController : UITableViewController {
     @IBOutlet weak var emailTextField :UITextField!
     @IBOutlet weak var passwordTextField :UITextField!
     
+    private var registrationViewModel :RegistrationViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
     }
+    
+    
+    @IBAction func save(_ sender: UIBarButtonItem) {
+        self.registrationViewModel = RegistrationViewModel(firstName: self.firstNameTextField.text!, lastName: self.lastnameTextField.text!, email: self.emailTextField.text!, password: self.passwordTextField.text!)
+        
+        self.registrationViewModel.save()
+    
+    }
+    
 
+    }
+    
 
-}
