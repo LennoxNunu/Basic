@@ -12,6 +12,7 @@ class RegistrationTableViewController : UITableViewController {
     
     private var registrationViewModel :RegistrationViewModel!
     
+    var selectedUser :UserViewModel!
     
     @IBOutlet weak var emailTextField :BindingTextField! {
         didSet {
@@ -25,12 +26,13 @@ class RegistrationTableViewController : UITableViewController {
         }
     }
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.registrationViewModel = RegistrationViewModel()
-      
+        
+        self.selectedUser.email.bind { self.emailTextField.text = $0 }
+        self.selectedUser.password.bind { self.passwordTextField.text = $0 }
         
     }
     
@@ -38,7 +40,9 @@ class RegistrationTableViewController : UITableViewController {
         
         print(self.registrationViewModel)
         
-
+        self.selectedUser.email.value = "Mary"
+        self.selectedUser.password.value = "marypassword"
+        
     }
     
 }

@@ -16,6 +16,8 @@
 		F7E7B50C2BA9A6360021BBFA /* RegistrationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E7B50B2BA9A6360021BBFA /* RegistrationTableViewController.swift */; };
 		F7E7B5102BA9A8340021BBFA /* RegistrationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E7B50F2BA9A8340021BBFA /* RegistrationViewModel.swift */; };
 		F7E7B5132BA9A9450021BBFA /* BindingTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E7B5122BA9A9450021BBFA /* BindingTextField.swift */; };
+		F7E7B51D2BA9C4D20021BBFA /* UsersTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E7B51C2BA9C4D20021BBFA /* UsersTableViewController.swift */; };
+		F7E7B5202BA9C5B30021BBFA /* UserViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7E7B51F2BA9C5B30021BBFA /* UserViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		F7E7B50B2BA9A6360021BBFA /* RegistrationTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationTableViewController.swift; sourceTree = "<group>"; };
 		F7E7B50F2BA9A8340021BBFA /* RegistrationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationViewModel.swift; sourceTree = "<group>"; };
 		F7E7B5122BA9A9450021BBFA /* BindingTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindingTextField.swift; sourceTree = "<group>"; };
+		F7E7B51C2BA9C4D20021BBFA /* UsersTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UsersTableViewController.swift; sourceTree = "<group>"; };
+		F7E7B51F2BA9C5B30021BBFA /* UserViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +72,8 @@
 				F7E7B50B2BA9A6360021BBFA /* RegistrationTableViewController.swift */,
 				F7E7B5122BA9A9450021BBFA /* BindingTextField.swift */,
 				F7E7B50F2BA9A8340021BBFA /* RegistrationViewModel.swift */,
+				F7E7B51C2BA9C4D20021BBFA /* UsersTableViewController.swift */,
+				F7E7B51F2BA9C5B30021BBFA /* UserViewModel.swift */,
 				F78D3B9B2BA48CF2002AAA6D /* Main.storyboard */,
 				F78D3B9E2BA48CF3002AAA6D /* Assets.xcassets */,
 				F78D3BA02BA48CF3002AAA6D /* LaunchScreen.storyboard */,
@@ -147,10 +153,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				F7E7B5102BA9A8340021BBFA /* RegistrationViewModel.swift in Sources */,
+				F7E7B5202BA9C5B30021BBFA /* UserViewModel.swift in Sources */,
 				F7E7B5132BA9A9450021BBFA /* BindingTextField.swift in Sources */,
 				F78D3B9A2BA48CF2002AAA6D /* ViewController.swift in Sources */,
 				F78D3B962BA48CF2002AAA6D /* AppDelegate.swift in Sources */,
 				F7E7B50C2BA9A6360021BBFA /* RegistrationTableViewController.swift in Sources */,
+				F7E7B51D2BA9C4D20021BBFA /* UsersTableViewController.swift in Sources */,
 				F78D3B982BA48CF2002AAA6D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
