@@ -6,3 +6,9 @@
 //
 
 import Foundation
+
+class RegistrationViewModel {
+    
+    var email :String!
+    var password :String!
+}
