@@ -35,6 +35,17 @@ class RegistrationTableViewController : UITableViewController {
     }
     
     @IBAction func save() {
+        self.registrationViewModel.email = self.emailTextField.text!
+        self.registrationViewModel.password = self.passwordTextField.text!
+        
+        
+        if(self.registrationViewModel.isValid){
+                
+        } else{
+            print(self.registrationViewModel.BrokenRules)
+            
+        }
+
     }
     
 }

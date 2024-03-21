@@ -30,8 +30,50 @@ class Dynamic<T> {
     
 }
 
-class RegistrationViewModel {
+
+
+struct BrokenRule {
+    var propertyName : String
+    var message : String
+}
+
+
+
+protocol ViewModel {
+    var BrokenRules : [BrokenRule]{ get set}
+    var isValid : Bool { mutating get }
+    
+}
+
+
+
+class RegistrationViewModel : ViewModel{
+    var BrokenRules : [BrokenRule] = [BrokenRule]()
     
     var email :String!
     var password :String!
+    
+    var isValid: Bool{
+        get{
+            self.BrokenRules = [BrokenRule]()
+            self.validate()
+            return self.BrokenRules.count == 0 ? true : false
+        }
+    }
+}
+
+extension RegistrationViewModel {
+    
+    private func validate(){
+        
+        if(self.email.isEmpty){
+            self.BrokenRules.append(BrokenRule(propertyName: "email", message: "email is required"))
+        }
+        
+        if(self.password.isEmpty){
+            self.BrokenRules.append(BrokenRule(propertyName: "password", message: "password is required"))
+        }
+        
+    }
+
 }
