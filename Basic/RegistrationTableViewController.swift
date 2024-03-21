@@ -31,17 +31,12 @@ class RegistrationTableViewController : UITableViewController {
         
         self.registrationViewModel = RegistrationViewModel()
         
-        self.selectedUser.email.bind { self.emailTextField.text = $0 }
-        self.selectedUser.password.bind { self.passwordTextField.text = $0 }
         
     }
     
     @IBAction func save() {
         
-        print(self.registrationViewModel)
-        
-        self.selectedUser.email.value = "Mary"
-        self.selectedUser.password.value = "marypassword"
+      
         
     }
     
