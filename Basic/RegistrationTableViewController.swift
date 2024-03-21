@@ -35,23 +35,6 @@ class RegistrationTableViewController : UITableViewController {
     }
     
     @IBAction func save() {
-        self.registrationViewModel.email = self.emailTextField.text!
-        self.registrationViewModel.password = self.passwordTextField.text!
-        
-        var message = ""
-        
-        if(self.registrationViewModel.email.isEmpty){
-                message += "Email is empty!"
-        }
-        
-        if(self.registrationViewModel.password.isEmpty){
-                message += " Password is empty!"
-        }
-        
-        let alertController = UIAlertController(title: "Errors", message: message, preferredStyle: .alert)
-        
-        //let alertOKAction = UIAlertAction(title: "", style: .default, handler: nil)
-        self.present(alertController, animated: true, completion: nil)
     }
     
 }
