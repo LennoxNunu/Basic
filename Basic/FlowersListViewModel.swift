@@ -11,18 +11,20 @@ class FlowersListViewModel {
     
     var flowers :[FlowerViewModel] = [FlowerViewModel]()
     
-    /*
-     we remove this code so that we can initialise from controller
-     
-    init(_ flowers :[Flower]) {
+    init(webservice :Webservice, completion :@escaping () -> ()) {
         
-        self.flowers = flowers.map(FlowerViewModel.init)
+        webservice.loadFlowers { flowers in
+            
+            self.flowers = flowers.map(FlowerViewModel.init)
+            
+            DispatchQueue.main.async {
+                completion()
+            }
+            
+        }
+        
     }
-     */
-    
-    func populateFlowers(_ flowers :[Flower]) {
-         self.flowers = flowers.map(FlowerViewModel.init)
-    }
+ 
 }
 
 class FlowerViewModel {

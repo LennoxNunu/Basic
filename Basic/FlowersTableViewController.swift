@@ -11,16 +11,15 @@ import UIKit
 class FlowersTableViewController : UITableViewController {
     
     private var flowersListViewModel :FlowersListViewModel!
+    private var webservice :Webservice = Webservice()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.flowersListViewModel = FlowersListViewModel()
-        
-        Webservice().loadFlowers { flowers in
-            self.flowersListViewModel.populateFlowers(flowers)
+        self.flowersListViewModel = FlowersListViewModel(webservice: self.webservice) {
             self.tableView.reloadData()
         }
+        
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
