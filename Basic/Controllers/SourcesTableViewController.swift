@@ -10,49 +10,25 @@ import UIKit
 
 class SourcesTableViewController : UITableViewController {
     
-    private var sources :[Source] = [Source]()
+    private var webservice :Webservice!
+    private var sourceListViewModel :SourceListViewModel!
+    private var dataSource :TableViewDataSource<SourceTableViewCell,SourceViewModel>!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        populateSources()
-    
-    }
-    
-    private func populateSources() {
         
-        let sourceURL = URL(string :"https://newsapi.org/v2/sources?apiKey=0cf790498275413a9247f8b94b3843fd")!
-        
-        URLSession.shared.dataTask(with: sourceURL) { data, _, _ in
+        self.webservice = Webservice()
+        self.sourceListViewModel = SourceListViewModel(webservice: self.webservice) {
             
-            if let data = data {
+            self.dataSource = TableViewDataSource(cellIdentifier: "Cell", items: self.sourceListViewModel.sourcesViewModel) { cell, vm in
                 
-                let json = try! JSONSerialization.jsonObject(with: data, options: [])
-                let dictionary = json as! [String:Any]
-                let sourcesDictionary = dictionary["sources"] as! [[String:Any]]
-                
-                self.sources = sourcesDictionary.flatMap(Source.init)
-                
-                DispatchQueue.main.async {
-                    self.tableView.reloadData()
-                }
+                cell.titleLabel.text = vm.name
+                cell.descriptionLabel.text = vm.description
             }
             
-            }.resume()
-    }
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.sources.count
-    }
-    
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath) as! SourceTableViewCell
-        
-        let source = self.sources[indexPath.row]
-        cell.titleLabel.text = source.name
-        cell.descriptionLabel.text = source.description
-        return cell
+            self.tableView.dataSource = self.dataSource
+            self.tableView.reloadData()
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -62,11 +38,10 @@ class SourcesTableViewController : UITableViewController {
         }
         
         let indexPath = (self.tableView.indexPathForSelectedRow)!
-        let source = self.sources[indexPath.row]
+        let sourceViewModel = self.sourceListViewModel.sourceAt(index: indexPath.row)
         
-        headlinesTVC.source = source
+        headlinesTVC.sourceViewModel = sourceViewModel
         
     }
    
 }
-
